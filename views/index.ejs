@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+
+<body>
+    <main>
+        <h1>Book list</h1>
+
+        <form action="/books" method="POST">
+            <label for="title">Title
+                <input type="text" id="title" placeholder="the great ..." name="title">
+            </label>
+            <label for="autor">Author
+                <input type="text" id="autor" placeholder="jhon doe" name="author">
+            </label>
+<section>
+    <label for="read">Read</label>
+    <input type="radio" id="check" name="read" value="Read" checked>
+    <label for="read">Not read</label>
+    <input type="radio" id="check" name="read" value="Not read">
+</section>
+
+            <button type="submit" class="s-btn">Submit</button>
+        </form>
+    </main>
+
+    <section class="books">
+        <h1>Books</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < books.length; i++) {%>
+                <tr>
+                    <td class="b-title"><%= books[i].title %></td>
+                    <td><%= books[i].author %></td>
+                    <td><button class="readd"><%= books[i].read %></button></td>
+                    <td><button class="delete-button">X</button></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
