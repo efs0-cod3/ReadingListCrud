@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser') // read values from form
 const ejs = require('ejs')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 
 let dbConnector = process.env.DB_URI
@@ -98,7 +98,7 @@ MongoClient.connect(dbConnector, {
                 .catch(error => console.error(error))
         })
 
-        app.listen(port, () => {
+        app.listen(PORT, () => {
             console.log(`Listening on port ${port}!`)
         })
 
